@@ -9,15 +9,15 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Nevertech.net`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Wade Chewning`,
+      summary: `who lives and works in Arlington, VA and tries to not crash production.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `A blog to document all the nerdy things I do.`,
     siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `wade-chewning`,
     },
   },
   plugins: [
