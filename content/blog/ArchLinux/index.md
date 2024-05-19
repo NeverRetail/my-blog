@@ -3,6 +3,7 @@ title: My Adventures with Arch Linux on Proxmox
 date: "2024-05-19T22:12:03.284Z"
 description: "My Adventures with Arch Linux"
 # draft: true
+# comment
 ---
 ### Memes aside, configuring Arch linux on my proxmox server was a fun way to spend a saturday afternoon. This was my first time using Arch. It was quite the experience. 
 
