@@ -47,11 +47,11 @@ This will display a list of all drives.
 * Boot partition will be the EFI system partition and be 1GiB.
 * The Swap partition which is reccomended at 4GiB.
 * Finally the Root partition which will be the remainder of the drive or a size you deem reasonable with atleast 23-32GiB.
-# open the target disk with 'fdisk' to create the partitions
+#### open the target disk with 'fdisk' to create the partitions
  ```sh
  fdisk /dev/sda
  ```
- # Create a new GPT Partition table
+#### Create a new GPT Partition table
  ```sh
  Command (m for help): g
  ```
