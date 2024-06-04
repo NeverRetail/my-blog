@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Form from "../components/form"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -56,6 +57,12 @@ const BlogIndex = ({ data, location }) => {
             </li>
           )
         })}
+        <h1
+          class="newsletterhead" //style={{ display: "flex" }}
+        >
+          Sign-up for my newsletter!
+        </h1>
+        <Form />
       </ol>
     </Layout>
   )
@@ -78,8 +85,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {frontmatter: { draft: {ne:true}}}
-      sort: { frontmatter: { date: DESC } }) {
+      filter: { frontmatter: { draft: { ne: true } } }
+      sort: { frontmatter: { date: DESC } }
+    ) {
       nodes {
         excerpt
         fields {
