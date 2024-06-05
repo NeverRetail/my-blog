@@ -1,7 +1,7 @@
 ---
 title: My Adventures with Arch Linux on Proxmox
 date: "2024-05-20T22:12:03.284Z"
-description: "My Adventures with Arch Linux"
+description: "My Adventures with Arch Linux."
 # draft: true
 # comment
 ---
