@@ -16,11 +16,16 @@ const Form = () => {
 
   return (
     <div class="form-container">
-      <form onSubmit={handleSubmit}>
-        <label>
+      <form
+        action="https://getform.io/f/lbkmqdeb"
+        method="POST"
+        onSubmit={handleSubmit}
+      >
+        <label htmlFor="email">
           <input
             className="emailbox"
             type="email"
+            id="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
