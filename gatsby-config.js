@@ -15,7 +15,7 @@ module.exports = {
       summary: `who lives and works in Arlington, VA and tries to not crash production.`,
     },
     description: `A blog to document all the nerdy things I do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    siteUrl: `https://nevertech.net/`,
     social: {
       twitter: `wade-chewning`,
     },
