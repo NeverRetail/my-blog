@@ -46,7 +46,7 @@ const Form = () => {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email"></label>
         <input
           className="emailbox"
           type="email"
