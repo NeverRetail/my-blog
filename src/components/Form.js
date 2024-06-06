@@ -1,8 +1,12 @@
 import React, { useState } from "react"
+import Modal from "./Modal" // Import the Modal component
+
 const Form = () => {
   const [formData, setFormData] = useState({
     email: "",
   })
+  const [status, setStatus] = useState("") // State to track form submission status
+  const [showModal, setShowModal] = useState(false) // State to control modal visibility
 
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -10,33 +14,63 @@ const Form = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    // Handle form submission logic here
-    console.log(formData)
+
+    const form = new FormData()
+    form.append("email", formData.email)
+
+    fetch("https://getform.io/f/lbkmqdeb", {
+      method: "POST",
+      body: form,
+    })
+      .then(response => {
+        if (response.ok) {
+          setStatus("SUCCESS")
+          setFormData({ email: "" }) // Clear form
+        } else {
+          setStatus("ERROR")
+        }
+        setShowModal(true) // Show modal
+      })
+      .catch(error => {
+        console.error("Form submission error:", error)
+        setStatus("ERROR")
+        setShowModal(true) // Show modal
+      })
+  }
+
+  const closeModal = () => {
+    setShowModal(false)
+    setStatus("")
   }
 
   return (
-    <div class="form-container">
-      <form
-        action="https://getform.io/f/lbkmqdeb"
-        method="POST"
-        onSubmit={handleSubmit}
-      >
-        <label htmlFor="email">
-          <input
-            className="emailbox"
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="someone@example.com"
-          />
-        </label>
-
-        <button class="submit-button" type="submit">
+    <div className="form-container">
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email:</label>
+        <input
+          className="emailbox"
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="someone@example.com"
+          required
+        />
+        <button className="submit-button" type="submit">
           Submit
         </button>
       </form>
+      <Modal show={showModal} onClose={closeModal}>
+        {status === "SUCCESS" && (
+          <p className="success-message">Thank you for signing up!</p>
+        )}
+        {status === "ERROR" && (
+          <p className="error-message">
+            There was an error submitting your email. Please try again.
+          </p>
+        )}
+      </Modal>
     </div>
   )
 }
